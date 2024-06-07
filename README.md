@@ -1,7 +1,8 @@
 # Gen-AI-in-Insurance
 
 The code shows a model to detect fraud cases in an insurance company  
-For this, we first do some Exploratory Data Analysis to understand the data that we have in our hands. We find certain columns that do not render us with good information and hence they are deleted.  
-The columns with data in the form of strings are converted to integers via dummies.  
-Policy number is taken as a reference.
-
+For this, we first do some Exploratory Data Analysis to understand the data that we have in our hands. We find certain columns that do not render us good information and hence they are deleted. The columns with data in the form of strings are converted to integers via dummies. The policy number is then taken as a reference.
+Three methods have been tried to find the best model accuracy.  
+1. ANN with SOMs: Here Self-Organised Maps were used to find out the cases that seem out of place from the other categories. In the graph. the red circles represent the probable fraud cases and the green squares represent the probable non-fraud cases. The squares that have both red circles and green squares show that the model is still trying to figure out whether the case is a fraud or not. We give the coordinates of the red circles and white boxes. This is because the more white the box is, the more its tendency to be an out-of-place case. So, we have spotted and given the coordinates of those boxes and let the SOM determine the cases. Then we let the Artificial Neural Networks run on the data to determine the final accuracy of the model.  
+2. ANN only: We let the Artificial Neural Networks run on the data alone by letting it fit on the dataset and find out the predicted values. We later then find out the confusion matrix to see the recall, precision, F1 score, and accuracy of this model.
+3. ML Models: Lastly, we take the help of various Machine learning models. A graph showing the error rates of KNN is drawn and the best hyperparameter is chosen. Decision Tree Classifiers are used as well as the Image is also shown for reference.  Other models like Balanced Random Forest, Random forest, Grid-Search cross-validation, Latent Dirichlet allocation, XGBoost, and Support Vector Machines. A table containing the accuracy score of all the models is made and conclusions are drawn.  XGBoost, LDA and Bernoulli Random Forest show the best result every time. Feature importance table is also created that shows us which feature has the mx to min contribution in the making of the model.
